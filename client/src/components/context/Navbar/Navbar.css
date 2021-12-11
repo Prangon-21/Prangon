@@ -38,7 +38,7 @@ nav ul {
     display: flex;
 }
 
-nav ul li a {
+nav ul li #link {
     line-height: 80px;
     color: #fff;
     padding: 12px 30px;
@@ -48,20 +48,7 @@ nav ul li a {
     text-transform: uppercase;
 }
 
-nav ul li a:hover {
+nav ul li #link:hover {
     background: rgba(0, 0, 0, 0.7);
     border-radius: 6px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

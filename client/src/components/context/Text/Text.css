@@ -1,0 +1,30 @@
+.text {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.textTop{
+    display: flex;
+}
+
+.chat {
+    padding: 15px;
+    border-radius: 20px;
+    max-width: 300px;
+    color: white;
+    background-color: rgb(100, 100, 100);
+}
+
+
+.textOwn {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.textOwn .chat {
+    background-color: rgb(240, 240, 240);
+    color: black;
+}
