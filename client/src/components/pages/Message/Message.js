@@ -1,13 +1,22 @@
-import { useState } from "react"
-import './Message.css'
+import { useEffect, useState } from "react";
+import './Message.css';
 import Navbar from "../../context/Navbar/Navbar";
 import Convo from '../../context/Convo/Convo';
 import Text from '../../context/Text/Text';
+import Axios from 'axios';
 
 const Message = () => {
     
-    const [text, setText] = useState("");
+    const [sendText, setSendText] = useState("");
     
+    const regis = () => {
+        Axios.get(`http://localhost:3001/text`, {
+            sendText: sendText,
+        }).then((res) => {
+            console.log(res)
+        });
+    }
+
     return ( 
         <>
             <Navbar />
@@ -39,13 +48,19 @@ const Message = () => {
                             <Text />
                         </div>
                         <div className="boxBottom">
+                            
                             <input
                             className="textInput"
                             type="text"
                             onChange={(e) => {
-                                setText(e.target.value)
+                                setSendText(e.target.value)
                             }} placeholder="Your Message..."></input>
-                            <button className="textSubmit">Send</button>
+
+                            <button
+                            className="textSubmit"
+                            type="submit"
+                            onClick={regis}
+                            >Send</button>
                         </div>
                     </div>
                 </div>
