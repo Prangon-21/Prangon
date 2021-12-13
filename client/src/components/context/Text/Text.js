@@ -1,10 +1,10 @@
 import './Text.css'
 
-const Text = ({own}) => {
+const Text = (props) => {
     return ( 
-        <div className={own ? "textOwn" : "text"}>
+        <div className={props.own ? "textOwn" : "text"}>
             <div className="textTop">
-                <p className="chat">This is the message</p>
+                <p className="chat">{ props.messages.text }</p>
             </div>
         </div>
      );

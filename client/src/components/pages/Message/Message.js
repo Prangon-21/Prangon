@@ -6,16 +6,31 @@ import Text from '../../context/Text/Text';
 import Axios from 'axios';
 
 const Message = () => {
-    
+
+    const userId = 20101580
     const [sendText, setSendText] = useState("");
+    const [chatHead, setChatHead] = useState([]);
+    const [currentUser, setCurrentUser] = useState({id:userId});
+    const [messages, setMessages] = useState([]);
     
-    const regis = () => {
-        Axios.get(`http://localhost:3001/text`, {
-            sendText: sendText,
-        }).then((res) => {
-            console.log(res)
+    useEffect(() => {
+        Axios.get(`http://localhost:3001/chathead`)
+        .then((res) => {
+            setChatHead(res.data);
         });
-    }
+    }, [])
+
+    useEffect(() => {
+        Axios.get(`http://localhost:3001/messagelist`, {
+            params:{
+                id: userId+currentUser.id,
+            }
+        })
+        .then((res) => {
+            setMessages(res.data);
+        })
+    },[currentUser])
+
 
     return ( 
         <>
@@ -23,29 +38,25 @@ const Message = () => {
             <div className='messanger'>
                 <div className="chatMenu">
                     <div className="menuWrapper">
-                        <input placeholder="Start a new conversation" className="menuSearch" />
-                        <Convo />
-                        <Convo />
-                        <Convo />
-                        <Convo />
-                        <Convo />
+                        <input placeholder="Search for conversation" className="menuSearch" />
+                        {chatHead.map((user, key) => {
+                            return  (
+                            <div onClick={() => setCurrentUser(user)}>
+                                <Convo user={user} />
+                            </div>
+                            )
+                        })
+                        }
                     </div>
                 </div>
                 <div className="chatBox">
                     <div className="boxWrapper">
+                        { currentUser?
+                        <>
                         <div className="boxTop">
-                            <Text />
-                            <Text own={true}/>
-                            <Text />
-                            <Text />
-                            <Text own={true}/>
-                            <Text />
-                            <Text />
-                            <Text own={true}/>
-                            <Text />
-                            <Text />
-                            <Text own={true}/>
-                            <Text />
+                            { messages.map((mesInfo ,key) => {
+                                return <Text messages={mesInfo} own={mesInfo.send_id == userId}/>
+                            })}
                         </div>
                         <div className="boxBottom">
                             
@@ -59,9 +70,19 @@ const Message = () => {
                             <button
                             className="textSubmit"
                             type="submit"
-                            onClick={regis}
+                            onClick={() => {
+                                Axios.post(`http://localhost:3001/sendtext`, {
+                                    convo_id: userId+currentUser.id,
+                                    send_id: userId,
+                                    receive_id: currentUser.id,
+                                    sendText: sendText,
+                                }
+                                ).then((res) => {
+                                });
+                            }}
                             >Send</button>
                         </div>
+                        </> : <span className="noConvo">Open a conversation to chat</span>}
                     </div>
                 </div>
             </div>

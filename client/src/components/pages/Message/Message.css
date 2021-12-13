@@ -56,3 +56,13 @@
     padding: 10px;
     height: 100%;
 }
+
+.noConvo {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    font-size: 40px;
+    text-align: center;
+    color: rgb(158, 158, 158);
+    cursor: default;
+}
