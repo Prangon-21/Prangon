@@ -4,6 +4,7 @@ import Feed from './components/pages/Feed/Feed';
 import Profile from './components/pages/Profile/Profile';
 import Message from './components/pages/Message/Message';
 import Notifications from './components/pages/Notification/Notification';
+import Navbar from './components/context/Navbar/Navbar';
 
 
 
@@ -23,8 +24,8 @@ function App() {
         <Route exact path="/message">
           <Message />
         </Route>
-        <Route exact path="/message">
-          <Message />
+        <Route exact path="/logout">
+          <Navbar />
         </Route>
       </Switch>
     </Router>

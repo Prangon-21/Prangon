@@ -55,7 +55,7 @@ const Message = () => {
                         <>
                         <div className="boxTop">
                             { messages.map((mesInfo ,key) => {
-                                return <Text messages={mesInfo} own={mesInfo.send_id == userId}/>
+                                return <Text messages={mesInfo} own={mesInfo.send_id == userId} />
                             })}
                         </div>
                         <div className="boxBottom">
