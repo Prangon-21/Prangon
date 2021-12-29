@@ -20,11 +20,9 @@ const pool  = mysql.createPool({
 
 app.get('/chathead', (req, res) => {
     pool.getConnection(function(err, connection) {
-        console.log(err)
-        connection.query(`SELECT * FROM users;`,
+        connection.query(`SELECT name, bracu_Id FROM users`,
         (err, result) => {
             if(err){
-                console.log(err)
                 res.status(400).send(err);
                 return;
             }else{
@@ -38,9 +36,9 @@ app.get('/chathead', (req, res) => {
 
 app.get('/messagelist', (req, res) => {
     pool.getConnection(function(err, connection) {
-        console.log(err)
-        console.log(req)
-        connection.query(`SELECT * FROM message WHERE convo_id = ${req.query.id};`,
+        const convoId = req.query.convo_id;
+        connection.query(`SELECT sender_id, text FROM messages WHERE convo_id = ?`,
+        [convoId],
         (err, result) => {
             if(err){
                 console.log(err)
@@ -56,12 +54,12 @@ app.get('/messagelist', (req, res) => {
 
 app.post('/sendtext', (req, res) => {
     const convo_id = req.body.convo_id
-    const send_id = req.body.send_id
-    const receive_id = req.body.receive_id
+    const sender_id = req.body.sender_id
+    const receiver_id = req.body.receiver_id
     const sendText = req.body.sendText
     pool.getConnection(function(err, connection) {
-        connection.query(`INSERT INTO message (convo_id, send_id, receive_id, text) VALUES (?,?,?,?);`,
-        [convo_id, send_id, receive_id, sendText],
+        connection.query(`INSERT INTO messages (convo_id, sender_id, receiver_id, text) VALUES (?,?,?,?)`,
+        [convo_id, sender_id, receiver_id, sendText],
         (err, result) => {
             if(err){
                 console.log(err)
