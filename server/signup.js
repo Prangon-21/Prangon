@@ -72,7 +72,7 @@ app.get('/login',(req, res)=>{
             }
 
             else{
-                res.send({messege:"User not found!"});
+                res.send({messege:"User Id or Password do not match"});
             }
                 
         });

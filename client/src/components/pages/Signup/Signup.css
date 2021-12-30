@@ -1,29 +1,67 @@
-#top {
-    margin-top: 100px;
-}
-.signup{
-    margin-top: 10px auto;
+.signupBox {
+    width: 450px;
+    height: 680px;
+    align-content: center;
+    background-color: black;
+    color: white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
     box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: #aca9a1;
-    text-align: center;
-    padding: 0 60px;
-    max-width: 500px;
-    width: 50%;
-    margin: 10px auto; 
+    box-shadow: grey;
+    padding: 50px 30px;
+    border-radius: 15px;
 }
 
-.signup .Heading{
-    margin: 10px auto;
+.boxTitle {
+    margin: 0;
+    padding: 0 0 20px;
     text-align: center;
-    
+    font-size: 22px;
 }
 
+.inputLabel {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
 
-.signup .input_field{
-    margin-bottom:15px ;
-    padding-top: 3%;
-    display:flex;
-    align-items: center;
+.inputBox {
+    width: 100%;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 15px;
+}
 
+.signinSubmitButton {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    background-color: crimson;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.signinSubmitButton:hover {
+    cursor: pointer;
+    background-color: tomato;
+    color: black;
+
+}
+
+#selectRoll {
+    background-color: grey;
+    color: white;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
 }

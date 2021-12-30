@@ -36,7 +36,7 @@ function App() {
           <Message />
         </Route>
         <Route exact path="/logout">
-          <Navbar />
+          <Home />
         </Route>
       </Switch>
     </Router>
