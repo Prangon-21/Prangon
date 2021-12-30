@@ -1,0 +1,15 @@
+#top {
+    margin-top: 100px;
+}
+
+.login{
+    
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #aca9a1;
+    text-align: center;
+    padding: 0 60px;
+    max-width: 500px;
+    width: 50%;
+    margin: 10px auto; 
+}

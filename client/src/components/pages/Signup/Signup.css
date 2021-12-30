@@ -1,0 +1,29 @@
+#top {
+    margin-top: 100px;
+}
+.signup{
+    margin-top: 10px auto;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #aca9a1;
+    text-align: center;
+    padding: 0 60px;
+    max-width: 500px;
+    width: 50%;
+    margin: 10px auto; 
+}
+
+.signup .Heading{
+    margin: 10px auto;
+    text-align: center;
+    
+}
+
+
+.signup .input_field{
+    margin-bottom:15px ;
+    padding-top: 3%;
+    display:flex;
+    align-items: center;
+
+}
