@@ -4,9 +4,10 @@ import Homebar from "../../context/Homebar/Homebar";
 const Home = () => {
     return (
         <>
-            <div id="top"></div>
             <Homebar />
-            <h1>Home Page</h1> 
+            <div className="welcomeBox">
+                <p className="welcomeTitle">Welcome to Pra<span id='N'>N</span>gon</p>
+            </div>
         </>
      );
 }

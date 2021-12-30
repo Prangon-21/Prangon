@@ -9,7 +9,7 @@
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
-    box-shadow: grey;
+    box-shadow: -30px 30px 20px rgba(0,0,0,0.3);
     padding: 70px 30px;
     border-radius: 15px;
 }
