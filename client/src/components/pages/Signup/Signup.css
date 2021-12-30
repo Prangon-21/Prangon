@@ -1,0 +1,35 @@
+#top {
+    margin-top: 100px;
+}
+.signup{
+    
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #aca9a1;
+    padding: 0 10px;
+    max-width: 500px;
+    width: 100%;
+    margin: 20px auto;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0,125);
+
+}
+
+.signup .form{
+    width: 100%;
+}
+
+.signup .form .input_field{
+    margin-bottom:15px ;
+    display:flex;
+    align-items: center;
+
+}
+.signup .form .input_field .lebel{
+    width: 100%;
+    outline: none;
+    border: 1px solid #d5dbd9;
+    font-size: 15px;
+    padding:8px 10px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
