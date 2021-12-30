@@ -34,7 +34,7 @@ const Login = () => {
         <>
             <div id="top"></div>
             <Homebar />
-            <div className="container">
+            <div className="login">
                 <div className="login-content">
                     <form action="">
                         <h2 className="title">Welcome</h2>
@@ -57,7 +57,7 @@ const Login = () => {
                                 />
             	            </div>
 
-                        <a href="#">Forgot Password?</a>
+                        {/* <a href="#">Forgot Password?</a> */}
             	        
 
                     </form>

@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./Signup.css"
 import Axios from "axios"
 import Homebar from "../../context/Homebar/Homebar";
+import { useHistory } from "react-router-dom";
 
 const Signup = () => {
     const [name, setName]= useState("");
@@ -10,6 +11,9 @@ const Signup = () => {
     const [password, setPassword]= useState("");
     const [department, setDepartment]= useState("");
     const [roll, setRoll]= useState("");
+    const [signupstatus, setSignupstatus]= useState("");
+    let history = useHistory();
+
 
     const signup = () =>{
         Axios.post(`http://localhost:3001/register`,
@@ -20,6 +24,7 @@ const Signup = () => {
         roll:roll,
         password:password}).then((response)=>{
             console.log(response);
+            history.push('/login');
         });
     };
 
@@ -30,7 +35,10 @@ const Signup = () => {
             <div id="top"></div>
             <Homebar />
             <section className="signup">
-            <form action="">
+            {/* <form action=""> */}
+                <div className="Heading">
+                    <h1>Sign-up</h1>
+                </div>
                     <div className="input_field">
                         <label htmlFor="name">Name</label>
                             <input type="text" name="name" id="name" 
@@ -41,7 +49,7 @@ const Signup = () => {
                     </div>
                     <div className="input_field">
                         <label htmlFor="bracuId">BRACU Id</label>
-                            <input type="int" name="bracuId" id="bracuId" 
+                            <input classname= "input_box" type="int" name="bracuId" id="bracuId" 
                             autoComplete="Off"
                             value = {bracuId}
                             onChange={(e) => setId(e.target.value)}
@@ -50,7 +58,7 @@ const Signup = () => {
                     </div>
                     <div className="input_field">
                         <label htmlFor="email">Email</label>
-                            <input type="text" name="email" id="email" 
+                            <input classname= "input_box" type="text" name="email" id="email" 
                             autoComplete="Off" 
                             value = {email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -58,7 +66,7 @@ const Signup = () => {
                     </div>
                     <div className="input_field">
                         <label htmlFor="department">Department</label>
-                            <input type="text" name="department" id="department" 
+                            <input classname= "input_box" type="text" name="department" id="department" 
                             autoComplete="Off" 
                             value = {department}
                             onChange={(e) => setDepartment(e.target.value)}
@@ -67,7 +75,7 @@ const Signup = () => {
                     </div>
                     <div className="input_field">
                         <label htmlFor="roll">Roll</label>
-                        <select name="roll" id="roll" 
+                        <select classname= "input_box" name="roll" id="roll" 
                             autoComplete="Off" 
                             value = {roll}
                             onChange={(e) => setRoll(e.target.value)}
@@ -91,7 +99,7 @@ const Signup = () => {
                     {/* <button type="submit" onClick={signup}>Signup</button> */}
                     
 
-                </form>
+                {/* </form> */}
                 <button type="submit" onClick={signup}>Signup</button>
             
             </section>
