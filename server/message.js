@@ -26,7 +26,7 @@ app.get('/chathead', (req, res) => {
                 res.status(400).send(err);
                 return;
             }else{
-            res.json(result)
+                res.json(result)
             }
         });
         connection.release();
