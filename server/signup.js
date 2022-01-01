@@ -81,6 +81,38 @@ app.get('/login',(req, res)=>{
 
 });
 
+
+
+// app.delete('/login',(req, res)=>{
+
+//     const username = req.query.username
+//     const bracuId = req.query.bracuId
+//     const email = req.query.email
+//     const department = req.query.department
+//     const roll = req.query.roll
+//     const password = req.query.password
+
+//    pool.getConnection(function(err, connection) {
+//        console.log(err)
+//        connection.query("DELETE * FROM users WHERE BRACU_Id='?'",
+//        [bracuId],
+
+//        (err, result) => {
+//            if(err){
+//                console.log(err)
+//                res.status(400).send(err);
+//                return;
+//            }
+//            res.status(200).json({
+//                status:200,
+//                success: true
+//            });
+//        });
+//        connection.release();
+//        });
+       
+// });
+
 app.listen(3001, ()=>{
     console.log("running server")
 });

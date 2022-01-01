@@ -27,6 +27,23 @@ const Login = () => {
             
             
         });
+
+
+        // Axios.delete(`http://localhost:3001/login`,
+        // {params:{
+        //     bracuId:bracu_id, 
+        //     password:password} 
+        // })
+        // .then((response)=>{
+        //     if (response.data.messege){
+        //         setLoginstatus(response.data.messege)
+        //     }
+        //     else{
+        //         history.push('/signup');
+        //     }
+            
+            
+        // });
     };
 
 
@@ -62,6 +79,7 @@ const Login = () => {
 
                     </form>
                     <button onClick={login}>Login</button>
+                    {/* <button on onClick={login}>Delete Account</button> */}
                 </div>
                 <h1>{loginstatus}</h1>
                 
