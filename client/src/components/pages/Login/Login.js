@@ -27,62 +27,52 @@ const Login = () => {
             
             
         });
+    };
 
-
-        // Axios.delete(`http://localhost:3001/login`,
-        // {params:{
-        //     bracuId:bracu_id, 
-        //     password:password} 
-        // })
-        // .then((response)=>{
-        //     if (response.data.messege){
-        //         setLoginstatus(response.data.messege)
-        //     }
-        //     else{
-        //         history.push('/signup');
-        //     }
+    const accountDelete = () =>{
+        Axios.delete(`http://localhost:3001/login`,
+        {params:{
+            bracuId:bracu_id, 
+            password:password} 
+        })
+        .then((response)=>{
+            if (response.data.messege){
+                setLoginstatus(response.data.messege)
+            }
+            else{
+                history.push('/signup');
+            }
             
             
-        // });
+        });
     };
 
 
     return (
         <>
-            <div id="top"></div>
             <Homebar />
-            <div className="login">
-                <div className="login-content">
-                    <form action="">
-                        <h2 className="title">Welcome</h2>
-           		            <div className="log-div">
-           		   		        <h5>BRACU ID</h5>
-           		   		        <input type="text" name="bracu_id" id="bracu_id" 
-                                autoComplete="Off" 
-                                value = {bracu_id}
-                                onChange={(e) => setId(e.target.value)}
-                                />
-           		             </div>
-    
-                        
-           		            <div className="log-div">
-           		    	        <h5>Password</h5>
-           		    	        <input type="text" name="password" id="password" 
-                                autoComplete="Off" 
-                                value = {password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                />
-            	            </div>
-
-                        {/* <a href="#">Forgot Password?</a> */}
-            	        
-
-                    </form>
-                    <button onClick={login}>Login</button>
-                    {/* <button on onClick={login}>Delete Account</button> */}
-                </div>
-                <h1>{loginstatus}</h1>
+            <div className="loginBox">
                 
+                <p className="boxTitle">Login Here</p>
+                
+                <p className="inputLabel">Bracu Id</p>
+                <input className="inputBox" type="text" name="bracu_id" placeholder="Enter ID" 
+                autoComplete="Off" 
+                value = {bracu_id}
+                onChange={(e) => setId(e.target.value)}
+                ></input>
+
+                <p className="inputLabel">Password</p>
+                <input className="inputBox" type="password" name="password" placeholder="Enter Password"
+                autoComplete="Off" 
+                value = {password}
+                onChange={(e) => setPassword(e.target.value)}
+                ></input>
+
+                <p className="loginStatus">{ loginstatus }</p>
+
+                <button className="loginSubmitButton" onClick={login}>Login</button>
+                <button className="loginSubmitButton" onClick={accountDelete}>Delete Account</button>
             </div>
              
         </> 
@@ -90,5 +80,4 @@ const Login = () => {
 }
  
 export default Login;
-
 

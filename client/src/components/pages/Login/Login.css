@@ -1,15 +1,64 @@
-#top {
-    margin-top: 100px;
+.loginBox {
+    width: 320px;
+    height: 420px;
+    align-content: center;
+    background-color: rgb(54, 52, 52);
+    color: white;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    box-shadow: -30px 30px 20px rgba(0,0,0,0.3);
+    padding: 70px 30px;
+    border-radius: 15px;
 }
 
-.login{
-    
-    box-sizing: border-box;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: #aca9a1;
+.boxTitle {
+    margin: 0;
+    padding: 0 0 20px;
     text-align: center;
-    padding: 0 60px;
-    max-width: 500px;
-    width: 50%;
-    margin: 10px auto; 
+    font-size: 22px;
+}
+
+.inputLabel {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.inputBox {
+    width: 100%;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: white;
+    font-size: 15px;
+}
+
+.loginSubmitButton {
+    border: none;
+    outline: none;
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: crimson;
+    color: white;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.loginSubmitButton:hover {
+    cursor: pointer;
+    background-color: rgb(250, 79, 79);
+    color: black;
+
+}
+
+.loginStatus {
+    padding-bottom: 20px;
+    color: crimson;
 }

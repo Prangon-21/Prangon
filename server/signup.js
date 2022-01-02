@@ -1,8 +1,6 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
-// const { response } = require("express");
-
 const app = express();
 
 app.use(express.json());
@@ -17,6 +15,7 @@ const pool  = mysql.createPool({
 });
 
 
+// code for signup page starts here
 
 app.post('/register',(req, res)=>{
 
@@ -47,14 +46,17 @@ app.post('/register',(req, res)=>{
         });
         
 });
+// code for signup page ends here
 
+
+
+//code for login page starts here
 
 app.get('/login',(req, res)=>{
-
     
     const bracuId = req.query.bracuId
     const password = req.query.password
-    
+
     pool.getConnection(function(err, connection) {
         console.log(err)
         connection.query("SELECT * FROM users WHERE BRACU_Id=? AND Password=?",
@@ -72,7 +74,7 @@ app.get('/login',(req, res)=>{
             }
 
             else{
-                res.send({messege:"User not found!"});
+                res.send({messege:"User Id or Password do not match"});
             }
                 
         });
@@ -83,35 +85,35 @@ app.get('/login',(req, res)=>{
 
 
 
-// app.delete('/login',(req, res)=>{
+app.delete('/login',(req, res)=>{
 
-//     const username = req.query.username
-//     const bracuId = req.query.bracuId
-//     const email = req.query.email
-//     const department = req.query.department
-//     const roll = req.query.roll
-//     const password = req.query.password
+    const bracuId = req.query.bracuId
+    const password = req.query.password
 
-//    pool.getConnection(function(err, connection) {
-//        console.log(err)
-//        connection.query("DELETE * FROM users WHERE BRACU_Id='?'",
-//        [bracuId],
+   pool.getConnection(function(err, connection) {
+       console.log(err)
+       connection.query("DELETE FROM users WHERE BRACU_Id=? AND Password=?",
+       [bracuId, password],
 
-//        (err, result) => {
-//            if(err){
-//                console.log(err)
-//                res.status(400).send(err);
-//                return;
-//            }
-//            res.status(200).json({
-//                status:200,
-//                success: true
-//            });
-//        });
-//        connection.release();
-//        });
+       (err, result) => {
+           if(err){
+               console.log(err)
+               res.status(400).send(err);
+               return;
+           }
+           res.status(200).json({
+               status:200,
+               success: true
+           });
+       });
+       connection.release();
+       });
        
-// });
+});
+
+
+//code for login page ends here
+
 
 app.listen(3001, ()=>{
     console.log("running server")

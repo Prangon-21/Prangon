@@ -16,13 +16,40 @@
 }
 
 .chatBox {
-    margin-top: 100px;
+    margin-top: 90px;
     flex: 5;
 }
 
+.chatHead{
+    position: fixed;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(158, 158, 158);
+    border-radius: 5px;
+    border-bottom: 1px solid black;
+}
+
+.headImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.headName {
+    font-weight: 1000;
+}
+
 .boxTop {
-    height:98%;
+    height: 98%;
     overflow-y: scroll;
+}
+
+.textBox {
+    margin-top: 75px;
 }
 
 .boxBottom {

@@ -35,8 +35,8 @@ function App() {
         <Route exact path="/message">
           <Message />
         </Route>
-        <Route exact path="/message">
-          <Message />
+        <Route exact path="/logout">
+          <Home />
         </Route>
       </Switch>
     </Router>
