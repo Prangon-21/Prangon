@@ -34,7 +34,8 @@ app.get('/chathead', (req, res) => {
     
 });
 
-app.get('/messagelist', (req, res) => {
+
+app.get('/conversation', (req, res) => {
     pool.getConnection(function(err, connection) {
         const convoId = req.query.convo_id;
         connection.query(`SELECT sender_id, text FROM messages WHERE convo_id = ?`,
@@ -52,7 +53,8 @@ app.get('/messagelist', (req, res) => {
     });
 });
 
-app.post('/sendtext', (req, res) => {
+
+app.post('/conversation', (req, res) => {
     const convo_id = req.body.convo_id
     const sender_id = req.body.sender_id
     const receiver_id = req.body.receiver_id
@@ -74,6 +76,25 @@ app.post('/sendtext', (req, res) => {
         connection.release();
     });
 })
+
+
+app.delete('/conversation', (req, res) => {
+    pool.getConnection(function(err, connection) {
+        const convoId = req.query.convo_id;
+        connection.query(`DELETE FROM messages WHERE convo_id = ?`,
+        [convoId],
+        (err, result) => {
+            if(err){
+                console.log(err)
+                res.status(400).send(err);
+                return;
+            }else{
+            res.send(result)
+            }
+        });
+        connection.release();
+    });
+});
 
 
 app.listen(port, () => {

@@ -24,7 +24,7 @@ const Message = () => {
     }, [])
 
     useEffect(() => {
-        Axios.get(`http://localhost:3001/messagelist`, {
+        Axios.get(`http://localhost:3001/conversation`, {
             params:{
                 convo_id: userId+currentUser.bracu_Id,
             }
@@ -63,13 +63,29 @@ const Message = () => {
 
                             <div className="chatHead">
                                 <img src={proPic} alt="img" className="headImg" />
-                                <span className="headName">{ currentUser.name }</span></div>
+                                <span className="headName">{ currentUser.name }</span>
+                                <button className="textSubmit"
+                                id="textDelete"
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    Axios.delete(`http://localhost:3001/conversation`, {
+                                        params:{
+                                            convo_id: userId+currentUser.bracu_Id,
+                                        }
+                                    })
+                                    .then((res) => {
+                                        setMessages([]);
+                                    })
+                                }
+                                }
+                                >Delete Conversation</button>
+                                </div>
                             <div className="textBox">
                             { messages.map((mesInfo ,key) => {
 
                                 return (
                                     <div ref={ scrollref }>
-                                        <Text messages={mesInfo} own={mesInfo.sender_id == userId} name={currentUser.name} />
+                                        <Text messages={mesInfo} own={mesInfo.sender_id == userId} />
                                     </div>
                                 )
                             })}
@@ -93,7 +109,7 @@ const Message = () => {
                             type="submit"
                             onClick={(e) => {
                                 e.preventDefault()
-                                Axios.post(`http://localhost:3001/sendtext`, {
+                                Axios.post(`http://localhost:3001/conversation`, {
                                     convo_id: userId+currentUser.bracu_Id,
                                     sender_id: userId,
                                     receiver_id: currentUser.bracu_Id,
